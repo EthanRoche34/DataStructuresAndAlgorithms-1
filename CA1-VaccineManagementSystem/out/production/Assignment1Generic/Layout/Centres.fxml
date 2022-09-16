@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--suppress ALL -->
+
+<AnchorPane fx:id="anchor" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Centres">
+    <children>
+      <MenuBar prefWidth="800.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#clearFacility" text="Clear Facility" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAll" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadAll" text="Load" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+        <TabPane fx:id="Tabs" layoutY="25.0" prefHeight="575.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="25.0">
+            <tabs>
+                <Tab fx:id="Centres" text="Centres">
+               <content>
+                  <GridPane hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="685.0" prefWidth="800.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="92.80000915527344" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="243.80002441406248" minHeight="10.0" prefHeight="233.39999999999998" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="196.8" minHeight="10.0" prefHeight="196.8" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="196.8" minHeight="10.0" prefHeight="52.80000000000001" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox spacing="5.0" GridPane.rowIndex="2">
+                           <children>
+                              <TextField fx:id="VCName" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="100.0" promptText="Name" />
+                              <TextField fx:id="VCAddress" maxWidth="-Infinity" prefWidth="100.0" promptText="Address" />
+                              <TextField fx:id="VCEircode" maxWidth="-Infinity" prefWidth="100.0" promptText="Eircode" />
+                              <TextField fx:id="Parking" maxWidth="-Infinity" prefWidth="100.0" promptText="Parking Spaces" />
+                              <Button fx:id="AddCentre" mnemonicParsing="false" onAction="#add" text="Add Centre" />
+                              <Button mnemonicParsing="false" onAction="#updateCentre" text="Update" />
+                           </children>
+                        </VBox>
+                        <ListView fx:id="CList" editable="true" minHeight="-Infinity" onMouseClicked="#getCentre" prefHeight="114.0" prefWidth="170.0" GridPane.rowIndex="1" />
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <TextField id="BoothIdentifier" fx:id="BoothIdentifier" maxWidth="-Infinity" prefWidth="100.0" promptText="Booth ID">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField id="BoothFloor" fx:id="BoothFloor" maxWidth="-Infinity" prefWidth="100.0" promptText="Floor">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextArea id="BoothAccessibility" fx:id="BoothAccessibility">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                              <Button id="AddBooth" fx:id="AddBooth" mnemonicParsing="false" onAction="#addBooth" text="Button" />
+                           </children>
+                        </VBox>
+                        <ListView fx:id="BList" onMouseClicked="#getBooth" prefHeight="200.0" prefWidth="267.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+               <content>
+                  <GridPane hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="685.0" prefWidth="800.0" vgap="6.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.2000122070313" minWidth="10.0" prefWidth="239.40002441406256" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.5999755859375" minWidth="10.0" prefWidth="274.5999755859375" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="92.80000915527344" minHeight="0.0" prefHeight="20.39999485015869" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="243.80002441406248" minHeight="10.0" prefHeight="206.8000051498413" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="270.80003662109374" minHeight="10.0" prefHeight="257.8000244140625" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="196.8" minHeight="10.0" prefHeight="62.59997558593744" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox spacing="5.0" GridPane.rowIndex="2">
+                           <children>
+                              <TextField fx:id="VCName" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="100.0" promptText="Name" />
+                              <TextField fx:id="VCAddress" maxWidth="-Infinity" prefWidth="100.0" promptText="Address" />
+                              <TextField fx:id="VCEircode" maxWidth="-Infinity" prefWidth="100.0" promptText="Eircode" />
+                              <TextField fx:id="Parking" maxWidth="-Infinity" prefWidth="100.0" promptText="Parking Spaces" />
+                           </children>
+                        </VBox>
+                        <ListView fx:id="CList" editable="true" minHeight="-Infinity" onMouseClicked="#getCentre" prefHeight="114.0" prefWidth="170.0" GridPane.rowIndex="1" />
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <TextField id="BoothIdentifier" fx:id="BoothIdentifier" maxWidth="-Infinity" prefWidth="100.0" promptText="Booth ID">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField id="BoothFloor" fx:id="BoothFloor" maxWidth="-Infinity" prefWidth="100.0" promptText="Floor">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextArea id="BoothAccessibility" fx:id="BoothAccessibility" promptText="Accessibility Information">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                        <ListView fx:id="BList" onMouseClicked="#getBooth" prefHeight="200.0" prefWidth="267.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                           <children>
+                              <Button fx:id="AddCentre" mnemonicParsing="false" onAction="#add" text="Add Centre">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateCentre" text="Update Centre">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Button id="AddBooth" fx:id="AddBooth" mnemonicParsing="false" onAction="#addBooth" text="Add Booth to selected Centre">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteBooth" text="Attempt to Delete Booth">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Label text="Vaccine Centres" />
+                        <Label text="Booths" GridPane.columnIndex="1" />
+                        <Label text="Appointments" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#addAppt" text="Add Appointment to Booth" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <VBox maxHeight="-Infinity" prefHeight="242.0" prefWidth="258.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <DatePicker fx:id="datePicker" promptText="Appointment Date">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <Label text="Choose Appointment time:">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Hour:">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Slider fx:id="timeHours" blockIncrement="1.0" majorTickUnit="1.0" max="16.0" min="8.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets bottom="1.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <Label text="Minutes:" />
+                              <Slider fx:id="timeMinutes" blockIncrement="15.0" majorTickUnit="15.0" max="45.0" minorTickCount="0" prefHeight="16.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets bottom="1.0" top="2.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <ChoiceBox fx:id="vaccType" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin></ChoiceBox>
+                              <TextField fx:id="vaccBatch" maxWidth="-Infinity" prefWidth="150.0" promptText="Vaccine Batch Number">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="vaccDetails" maxWidth="-Infinity" prefWidth="150.0" promptText="Vaccinator Details">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="appointmentPPSN" maxWidth="-Infinity" promptText="PPSN">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin></TextField>
+                           </children>
+                        </VBox>
+                        <ListView fx:id="appointments" prefHeight="200.0" prefWidth="275.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+                </Tab>
+            <Tab text="Appointments">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="2.0">
+                           <children>
+                              <Label text="Vaccine Centres" />
+                              <ChoiceBox fx:id="centresChoics" prefWidth="150.0" />
+                              <Label text="Booths" />
+                              <ChoiceBox fx:id="boothChoice" prefWidth="150.0" />
+                              <Label text="Appointments:" />
+                              <ListView fx:id="appointmentList2" prefHeight="334.0" prefWidth="297.0" />
+                              <Button mnemonicParsing="false" onAction="#completeAppt" text="Complete Selected Appointment">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#cancelAppt" text="Cancel selected appointment" />
+                           </children>
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="547.0" prefWidth="368.0" spacing="5.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <Label text="Note: A centre must be chosen on the left for this option" />
+                              <Button mnemonicParsing="false" onAction="#apptsByCentre" text="Get Appointments By Centre" />
+                              <Button mnemonicParsing="false" onAction="#getAll" text="Get All Appointments" />
+                              <ListView fx:id="allAppts" prefHeight="419.0" prefWidth="368.0" />
+                              <Label fx:id="total" text="Total Appointments: " />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+                <Tab text="Patients">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="5.0">
+                           <children>
+                              <Label text="Patients" />
+                              <ListView fx:id="patientLV" prefHeight="200.0" prefWidth="258.0" />
+                              <VBox maxHeight="-Infinity" prefHeight="300.0" prefWidth="100.0">
+                                 <children>
+                                    <TextField fx:id="patientPPSN" maxWidth="150.0" promptText="PPSN">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="patientName" maxWidth="150.0" promptText="Patient Name">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <DatePicker fx:id="patientDOB" maxWidth="150.0" promptText="Date Of Birth">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
+                                    <TextField fx:id="patientContact" maxWidth="-Infinity" prefWidth="150.0" promptText="Home EIrcode">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextArea fx:id="patientAccessibility" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" promptText="Accessibility Needs" />
+                                    <Button mnemonicParsing="false" onAction="#addPatient" text="Add Patient" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="547.0" prefWidth="502.0">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                           <children>
+                              <ChoiceBox fx:id="patientIDs" prefWidth="150.0" />
+                              <ListView fx:id="patientRecords" prefHeight="200.0" prefWidth="200.0" />
+                              <Label text="Smart Add: ">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#smartAdd" text="Attempt to automatically make an appointment" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+                </Tab>
+            <Tab text="Vaccines">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="546.0" prefWidth="366.0" spacing="3.0">
+                           <children>
+                              <Label text="Vaccine Search">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Vaccine Type:">
+                                       <padding>
+                                          <Insets right="50.0" />
+                                       </padding>
+                                    </Label>
+                                    <ChoiceBox fx:id="searchType" prefHeight="10.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#vaccineSearch" text="Search" />
+                              <ListView fx:id="vaccines" prefHeight="358.0" prefWidth="356.0" />
+                              <Label fx:id="vaccineCount" text="Total Vaccines of Selected Type:" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

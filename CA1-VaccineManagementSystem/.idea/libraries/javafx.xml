@@ -1,0 +1,56 @@
+<component name="libraryTable">
+  <library name="javafx">
+    <CLASSES>
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="jar://$PROJECT_DIR$/../jfoenix-9.0.10.jar!/" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="jar://$PROJECT_DIR$/gson-2.9.1.jar!/" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$" />
+    </SOURCES>
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+  </library>
+</component>
